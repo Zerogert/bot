@@ -6,11 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using bot.Helpers;
+using bot.Services;
 
 namespace bot.ViewModels
 {
 	public class MainViewModel:BaseViewModel
 	{
+		private BotService botService = new BotService("https://www.cyberforum.ru/log-in.php");
 		private ICommand runCommand;
 		private string logs;
 		private string login;
@@ -66,7 +68,8 @@ namespace bot.ViewModels
 
 		private void Run(object obj)
 		{
-
+			botService.SignIn(Login, Password);
+			var test = botService.Web;
 		}
 	}
 }

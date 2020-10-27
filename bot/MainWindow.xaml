@@ -5,8 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:bot"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Бот" Height="450" Width="800">
     <Grid>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Border Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Black" Padding="10" Background="Gainsboro">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock>Авторизация</TextBlock>
+
+                    <StackPanel Grid.Row="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Width="100">Логин</TextBlock>
+                        <TextBox Text="{Binding Login}" Width="200"></TextBox>
+                    </StackPanel>
+
+                    <StackPanel Margin="5" Grid.Row="2" Orientation="Horizontal">
+                        <TextBlock Width="100">Пароль</TextBlock>
+                        <TextBox Text="{Binding Password}" Width="200"></TextBox>
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+            <Border Margin="5" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Black" Padding="10" Background="Gainsboro">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock>Фильтры</TextBlock>
+                </Grid>
+            </Border>
+
+            <Button Command="{Binding RunCommand}" Padding="5" Content="Выполнить" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="3"/>
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Логи"></TextBlock>
+
+            <TextBox Text="{Binding Logs}" Grid.Row="1" VerticalScrollBarVisibility="Auto" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+        </Grid>
     </Grid>
 </Window>
